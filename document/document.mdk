@@ -1,0 +1,68 @@
+Title         : Homework 0
+Author        : Due on September 7 Wednesday
+Logo          : 
+
+[TITLE]
+~~ Center
+Jonathon Strebing
+~~
+~~ Center
+jonstreb@indiana.edu
+~~
+
+# Basic Text Typewriting.
+
+Here is a list:
+
+* item 1
+* item 2
+* item 3
+* subscripting Black~pit~; superscripting Blue^sky^
+
+This is a __boldface words__. Newly introduced notion will be emphasized in italic font such as
+_group theory_. We could also add boldface to it, e.g. **_group theory_**.
+
+Mathematics can be inlined like _E = mc^2^_. Or, they can be elegantly presented in standalone
+blocks like below:
+
+~ Equation { #euler; caption:"Euler's formula" }
+e = \lim_{n\to\infty} \left( 1 + \frac{1}{n} \right)^n
+~
+
+[Euler]: http://en.wikipedia.org/wiki/Euler's_number
+
+The above theorem can be referenced as Equation [#euler]. We may prove it as a theorem.
+
+__Theorem 1.__ (_Euler's theorem_)
+
+If $n$ and $a$ are positive integers and $gcd$(_$n$_, _$a$_) = $1$, then
+~ Equation
+a^{\theta (n)} \equiv1  \mod n
+~
+
+# Basics of typesetting code
+
+Below is a javascript program snippet
+
+``` javascript
+function hello() {
+  return "hellow world!"
+}
+```
+
+Here is the java code we mentioned in the first lecture:
+``` javascript
+int total = 0;
+for (int i = 1; i <= 10; i++)
+  total = total + i;
+```
+
+And typing up Haskell is as easy:
+``` haskell
+f :: [Int] -> [Int]
+f []     = []
+f (x:xs) = f ys ++ [x] ++ f zs
+  where
+    ys = [a | a  xs, a  x]
+    zs = [b | b  xs, b > x]
+```
