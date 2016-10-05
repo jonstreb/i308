@@ -1,0 +1,200 @@
+Title         : Homework 2
+Author        : Jonathon Strebing
+Logo          : True
+
+[TITLE]
+
+# What are the types of the following values?
+
+a. [’a’,’b’,’c’]
+
+ [Char]
+
+- (’a’,’b’,’c’)
+
+ (Char, Char, Char)
+
+- [(False,’0’),(True,’1’)]
+
+ [(Bool, Int), (Bool, Int)]
+ 
+- ([False,True],[’0’,’1’])
+
+ ([Bool], [Int])
+ 
+- [tail,init,reverse]
+
+ [[a] -> [a]]
+ 
+
+# What are the types of the following functions?
+a. second xs     = head (tail xs)
+
+ [a] -> a
+ 
+- swap (x,y)    = (y,x)
+
+ (a,b) -> (b,a)
+
+- pair x y      = (x,y)
+
+ a -> b -> (a,b)
+
+- double x      = x*2
+
+ Num a => a -> a
+
+- palindrome xs = reverse xs == xs
+
+ Eq a => [a] -> Bool
+
+- twice f x     = f (f x)
+
+ (t -> t) -> t -> t
+\
+
+# Types and Typeclasses
+
+a. What functions define the typeclasses `Real` and `Integral`,
+respectively? Read the documentation (find them either
+through [Hayoo](http://hayoo.fh-wedel.de)
+or [Hoogle](https://www.haskell.org/hoogle/)) of these functions and try
+invoking each of them in `ghci`. Show your trials and explain in English
+what the functions do.
+
+ `Real` functions:
+  
+   toRational :: a -> Rational
+   
+   Prelude> toRational 25
+
+25 % 1
+
+This function provides the number and the modulus
+  
+  `Integral` functions:
+  
+  quot :: a -> a -> a
+  
+  Prelude> quot 10 2
+  
+ 5
+ 
+ This function gives you the quotient of the first number divided by the second
+  
+  rem :: a -> a -> a
+  
+  Prelude> rem 25 5
+
+0
+
+This function gives you the remainder of the second number going into the first
+  
+  div :: a -> a -> a
+  
+  Prelude> div 20 4
+
+5
+
+This function divides the first number by the second
+
+  
+  mod :: a -> a -> a
+  
+  Prelude> mod 25 5
+
+0
+
+This function provides the leftover numbers after the second number goes into the first
+  
+  
+  quotRem :: a -> a -> (a, a)
+  
+  Prelude> quotRem 24 6
+
+(4,0)
+
+This function provides the quotient and remainder in a pair
+
+  
+  divMod :: a -> a -> (a, a)
+  
+  Prelude> divMod 25 7
+
+(3,4)
+
+This function shows how many times second number goes into first and then provides the remainder
+
+  
+  toInteger :: a -> Integer
+  
+  Prelude> toInteger 21
+
+21
+
+This function returns an integer
+  
+
+- What are the example types that are instances of `Real` and `Integral`,
+  respectively. Try invoking the `Real` and `Integral` functions on
+  values of the example types that you give.
+  
+  `Real` instances:
+  
+  instance Real Word
+  
+  instance Real Integer
+  
+  instance Real Int
+  
+  instance Real Float
+  
+  instance Real Double
+  
+  `Integral` instances:
+  
+  instance Real Word
+  
+  instance Real Integer
+  
+  instance Real Int
+  
+
+  
+- Define a function `f` as follows:
+``` haskell
+f x = toRational $ rem x 5
+```
+  i. What is `f`'s type?
+  
+  (Integral a) => a -> Rational
+   
+  - Describe how would your Haskell compiler/interpreter infer `f`'s type.
+  
+  The interpreter is able to parse all code given and also knows the types of toRational
+  and of rem so it would be able to interpret the type of `f`
+\
+
+# Functions
+
+a. Redefine the following version of (&&) using _conditionals_ rather than patterns:
+``` haskell
+  True && True = True
+  _    && _    = False
+  
+  1. && :: Bool -> Bool -> Bool
+     && = if True & True then True
+          else False
+```
+- Give three possible definitions for the logical or operator (`||`)
+   using pattern matching.
+   
+   
+
+- What does the `init` function in Prelude[^prelude] do? Define `init` in
+  terms of functions `length` and `take`.
+  
+  This function takes in a list of any length and then returns a list of the same numbers minus the last input.
+  
+  
+[reference manual]: http://research.microsoft.com/en-us/um/people/daan/madoko/doc/reference.html  "Madoko reference manual"
