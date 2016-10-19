@@ -1,0 +1,106 @@
+Title         : Homework 3
+Author        : Jonathon Strebing
+Logo          : True
+
+[TITLE]
+#Define the following library functions using recursion
+a. Produce a list with n identical elements:
+``` haskell
+  replicate :: Int -> a -> [a]
+  replicate' n x  
+    | n <= 0    = []  
+    | otherwise = x:replicate' (n-1) x
+```
+
+b. Select the nth element of a list:
+``` haskell
+  (!!) :: [a] -> Int -> a
+  xs !! i [] = []
+  (!!) i (x:xs)
+    | i == x = [x]
+    | otherwise x: (!!) xs
+```
+
+c. Decide if a value is an element of a list:
+``` haskell
+elem :: Eq a => a -> [a] -> Bool 
+elem a [] = False  
+elem a (x:xs)  
+    | a == x    = True  
+    | otherwise = a `elem'` xs 
+```
+# Merge and Sort
+a. Define a recursive function
+``` haskell
+  merge :: Ord a => [a] -> [a] -> [a]
+  merge xs [] = xs
+  merge [] ys = ys
+  merge (x:xs) (y:ys) 
+          | (x <= y)  = x:(merge xs (y:ys)) 
+          | otherwise = y:(merge (x:xs) ys)
+```
+
+b. Define a recursive function
+``` haskell
+  msort :: Ord a => [a] -> [a]
+  mergesort [] = []
+  mergesort [x] = [x]
+  mergesort xs = merge (mergesort (fsthalf xs)) (mergesort (sndhalf xs))
+```
+
+# Higher-order functions
+a. Express the comprehension 
+``` haskell 
+  [f x | x  xs, p x] 
+``` 
+using the functions `map` and `filter`.
+
+  map :: (a -> b) -> [a] -> [b]  
+  map _ [] = []  
+  map f (x:xs) = f x : map f xs
+  
+  filter :: (a -> Bool) -> [a] -> [a]  
+  filter _ [] = []  
+  filter p (x:xs)   
+    | p x       = x : filter p xs  
+    | otherwise = filter p xs
+
+* Redefine `map f` and `filter p` using `foldr`. (Hint: What is the type of `map f`? And how about the type of `filter p`?)
+
+  map :: (a -> b) -> [a] -> [b]  
+  map f xs = foldr (\x acc -> f x : acc) [] xs
+    
+    
+  filter :: (a -> Bool) -> [a] -> [a]  
+  filter p = foldr (\x acc -> if p x then x : acc else acc) []
+
+# Number representations and Arithmetics
+
+a. Convert (8729)~12~ into its octet (base-8) representation.
+
+35021
+
+*  Write a haskell function that converts any base-8 (_octet_) number into its base-6 (_senary_) form.
+``` haskell
+  octet2senary :: [Int] -> [Int]
+  octet2senary xs = undefined
+```
+For example, to obtain the senary representation of (345)~8~, you can call
+``` {padding-left:1ex; padding-right:1ex; padding-top:.75ex; padding-bottom:.25ex; background-color:black; color:white; font-size:14pt }
+Prelude λ> octet2senary [3,4,5]    
+[1,0,2,1]
+```
+to get (1021)~6~.
+
+*  Write a Haskell function that adds two base-8 numbers represented as lists. For example, to add (6273)~8~ and (7712)~8~ in `ghci`, you type
+``` {padding-left:1ex; padding-right:1ex; padding-top:.75ex; padding-bottom:.25ex; background-color:black; color:white; font-size:14pt }
+Prelude λ> addoctets [6,2,7,3] [7,7,1,2]    
+[1,6,1,8,5]
+```
+You can use the following code stub to get yourself started.
+``` haskell
+  addoctets :: [Int] -> [Int] ->[Int]
+  addoctets = undefined
+``` 
+
+[reference manual]: http://research.microsoft.com/en-us/um/people/daan/madoko/doc/reference.html  "Madoko reference manual"
