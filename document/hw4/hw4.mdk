@@ -1,0 +1,62 @@
+Title         : Homework 4
+Author        : Jonathon Strebing
+Logo          : True
+
+[TITLE]
+
+# Counting 
+An urn contains 15 red, distinctly labeled, balls, and 10 white, distinctly labeled balls. 5 balls are picked from the urn.\
+a. How many different samples are possible?\
+
+   * 25 Choose 5 = 53,130 different samples possible\
+
+b. How many samples contain only red balls?\
+
+   * 15 Choose 5 = 3,003 samples
+
+c. How many samples contain 3 red balls and 2 white balls?\
+
+   * 15 Choose 3 x 10 Choose 2 = 455 * 45 = 20,475 samples
+
+# Conditional Probability and Bayes Theorem
+Given two urns: Urn A has 10 gold coins and 5 silver coins while Urn B has 2 gold coins and 8 silver coins.
+Alice first randomly picks an urn then randomly pick a coin from the urn. It turns out that the coin is golden. She then puts the coin back into the urn and then randomly draws another coin and it is still a golden one.
+What is the probability that it was Urn A being picked in the first place?
+~ Math
+\frac{2/3 * 1/2}{(2/3 * 1/2) + (1/5 * 1/2)}
+~
+
+~ Math
+\frac{1/3}{13/30}
+~
+
+= 10/13
+
+# Random Variables
+Randomly throwing 100 balls into 20 bins, how many bins (on average) will end up empty?
+~ Math
+\frac{20-1}{20}^{100} * 20
+~
+= 0.12 bins empty on average
+
+# Modulo Arithmetic and Primes
+a. Compute the following numbers
+  - 2135 mod 23
+  
+    = 19
+  - -2135 mod 23
+  
+    = 4
+  - 2135 mod (-23)
+  
+    = -4
+  - -2135 mod (-23)
+  
+    = -19
+b. Write a Haskell function that print the sum of the first `n` primes
+``` haskell
+    sumOfPrimes :: Int -> Integer
+    sumOfPrimes 
+```
+
+[reference manual]: http://research.microsoft.com/en-us/um/people/daan/madoko/doc/reference.html  "Madoko reference manual"
