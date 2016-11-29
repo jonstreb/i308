@@ -1,0 +1,117 @@
+Title         : Homework 5
+Author        : Jonathon Strebing
+Logo          : True
+
+[TITLE]
+
+# Groups
+a. **[0.25 point]** What is $\mathbb{Z}^+_3$ and $\mathbb{Z}^+_5$? What is $\mathbb{Z}^\times_3$ and $\mathbb{Z}^\times_5$
+
+$\mathbb{Z}^+_3$ = ({0,1,2}), + mod3)
+
+$\mathbb{Z}^+_5$ = ({0,1,2,3,4}), + mod5)
+
+$\mathbb{Z}^\times_3$ = ({0,1,2}), * mod3)
+
+$\mathbb{Z}^\times_5$ = ({0,1,2,3,4}), * mod5)
+
+*  **[0.25 point]** Abbreviating $\mathbb{Z}^+_n$ by $\mathbb{Z}_n$. Define $\mathbb{Z}_p\times\mathbb{Z}_q$ to be the set $\{(g,h) | g\in\mathbb{Z}_p, h\in\mathbb{Z}_q\}$. Enumerate all the elements of $\mathbb{Z}_3\times\mathbb{Z}_5$?
+
+
+*  **[1 point]** For every $(g_1, h_1), (g_2, h_2)\in\mathbb{Z}_3\times\mathbb{Z}_5$, define "$+$" as 
+~ math
+(g_1,h_1)+(g_2,h_2) = (g_1+g2 \mathrm{mod} 3, h1+h2 \mathrm{mod} 5).
+~
+Prove that $\mathbb{Z}_3\times\mathbb{Z}_5$ is a group under the definition of "$+$".
+
+*  **[1 points]** Find a definition of "$\times$" over $\mathbb{Z}_3\times\mathbb{Z}_5$ such that $\mathbb{Z}_3\times\mathbb{Z}_5$ is a group respect to your definition of "$\times$", and prove it.
+
+# Extended Euclidean and Greatest Common Divisors
+a. **[1.5 points]** For every pair of $a$ and $b$ below, find integers $x$ and $y$ such that 
+~ math
+ax+by=\mathrm{gcd}(a,b).
+~
+\
+  (1) $a=12, b=35$.\
+
+gcd(12,35) = 1
+
+x = (1/24)
+y = (1/70)
+
+(1/24)12 + (1/70)35 = gcd(12,35)
+  
+
+  (2) $a=21, b=28$.\
+
+gcd(21,28) = 7
+
+x = -1
+
+y = 1
+
+21(-1) + 28(1) = gcd(21,28)
+  
+  
+   
+*  **[1 point]** Write a Haskell function `extended_euclidean` *on your own* to automates your mechanical work above.
+
+eGCD :: Integer -> Integer -> (Integer,Integer,Integer)
+
+eGCD 0 b = (b, 0, 1)
+
+eGCD a b = let (g, s, t) = eGCD (b `mod` a) a
+           in (g, t - (b `div` a) * s, s)
+# Chinese Remainder Theorem
+a. **[2 points]** For each one of the below, If such an integer $x$ exists, find the minimal  positive $x$ that satisfies each one of the following; otherwise, explain why such $x$ cannot be found.\
+  (1)
+~ math
+\left\{\begin{array}{l}
+  2x = 5 \mod 17\\
+  3x + 1 = 9 \mod 13.
+\end{array}\right.
+
+There is no x that satisfies this as the higher the x goes to satisfy the first line, the lower 
+the remainder after performing the modulus for the second line
+~
+\
+  (2)
+  ~ math
+\left\{\begin{array}{l}
+  x = 5 \mod 15\\
+  3x + 1 = 9 \mod 25.
+\end{array}\right.
+
+There exists no x that satisfies this as the possible x values from the first line can never satisfy
+the operation of the second line
+~
+
+* **[0.5 point]** Write a Haskell function on your own that solves any equation systems of the following form for input integer arguments $a, b, c, d$.
+~ math
+\left\{\begin{array}{l}
+  x = a \mod b\\
+  x = c \mod d.
+\end{array}\right.
+~ 
+
+# Euler's Theorem and Chinese Remainder Theorem
+
+a. **[0.5 point]** Let $\phi$ be the Euler's totient function. Calculate $\phi(36)$.
+
+$\phi$ 36 = (1 - 1/6)(1 - 1/6) x 36
+
+$\phi$ 36 = 25
+
+* **[2 points]** Without using a calculator, compute $2016^{11} \mod 24$.
+
+24 = 6 * 4
+
+11 mod (6-1) = 5
+11 mod (4-1) = 2
+
+(5,2) = 3
+
+
+
+
+[reference manual]: http://research.microsoft.com/en-us/um/people/daan/madoko/doc/reference.html  "Madoko reference manual"
