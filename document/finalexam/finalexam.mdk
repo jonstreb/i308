@@ -1,0 +1,84 @@
+Title         : Final Exam
+Author        : Jonathon Strebing
+Logo          : True
+
+[TITLE]
+
+# Mathematical Induction 
+
+Base Case: $n = 1$, true because $(1 + x)^{1} >= 1 + (1)x$
+
+Inductive Hypothesis: For a given $k$, our equation holds true for all $n <= k$
+
+Induction Step: 
+~ Equation
+(1 + x)^{k+1} >= 1 + (k + 1)x
+~
+~ Equation
+1 + (k +1)x + kx^{2} >= 1 + kx + x
+~
+~ Equation
+kx^2 + kx + x + 1 >= kx + x + 1
+~
+~ Equation
+kx^2 + kx >= kx
+~
+~ Equation
+kx(x + 1) >= kx
+~
+~ Equation
+x + 1 >= 1
+~
+~ Equation
+x >= 0
+~
+# Number Theory
+
+2016 = 7 x (2^5^ * 3^2^) 
+
+so gcd(2016, 12^15^) = 2^5^3^2^
+
+so 12^15^ = x mod 2016
+
+2^25^3^13^ = (x/288) mod 7
+
+2^6^ = 3^6^ = 1 mod 7
+
+2^25^3^13^ = 2 * 3 = 6 = -1 mod 7
+
+12^15^ mod 2016 = -288 mod 2016
+
+
+
+
+# Probabilities
+There are four boxes with identical appearance:
+
+ - One box contains a $100 bill;
+ - One other box contains a $200 bill;
+ - The rest two boxes are empty.
+
+Mike gets a chance to pick one of the four boxes and be rewarded the bill in the box (if there is any).
+
+Mike decided a box and hold it in his hands. However, before opening this box, one out of the rest three boxes is opened but ends up empty. Now Mike could either
+
+ a. stick with the box in his hand; or
+ b. change his mind and swap his box with one of the two unopened boxes.
+
+Question:
+
+(1) What is Mike's expected reward if he chooses to stick with the box in his hand?
+
+The expected reward would be \$100 as there are 3 boxes totaling an amount of \$300
+and his selection is 1/3 of of the total amount
+
+(2) What is Mike's expected reward if he chooses to swap his box with one of the two unopened boxes?
+
+The expected reward in this situation is still \$100 as there are still 3 total boxes and
+his selection represents 1/3 of the total amount of \$300
+
+(3) Assume Mike decided to swap the box in his hands with one of the other two unopened boxes but ended up getting nothing. What is the probability that the box he originally chose actually contains the $200 bill?
+
+1/2 or 50%
+
+[reference manual]: http://research.microsoft.com/en-us/um/people/daan/madoko/doc/reference.html  "Madoko reference manual"
