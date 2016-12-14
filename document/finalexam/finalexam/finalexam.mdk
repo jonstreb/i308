@@ -1,0 +1,51 @@
+Title         : Final Exam
+Author        : Jonathon Strebing
+Logo          : True
+
+[TITLE]
+
+# Mathematical Induction 
+
+Madoko is a fast markdown processor for writing professional articles
+with a focus on simplicity and plain text readability.
+
+* Read the [reference manual].
+* Explore the upper-right toolbox menu to discover how Markdown works. 
+* `Alt-Q` reformats the current paragraph.
+
+# Number Theory
+
+
+
+
+# Probabilities
+There are four boxes with identical appearance:
+
+ - One box contains a $100 bill;
+ - One other box contains a $200 bill;
+ - The rest two boxes are empty.
+
+Mike gets a chance to pick one of the four boxes and be rewarded the bill in the box (if there is any).
+
+Mike decided a box and hold it in his hands. However, before opening this box, one out of the rest three boxes is opened but ends up empty. Now Mike could either
+
+ a. stick with the box in his hand; or
+ b. change his mind and swap his box with one of the two unopened boxes.
+
+Question:
+
+(1) What is Mike's expected reward if he chooses to stick with the box in his hand?
+
+The expected reward would be \$100 as there are 3 boxes totaling an amount of \$300
+and his selection is 1/3 of of the total amount
+
+(2) What is Mike's expected reward if he chooses to swap his box with one of the two unopened boxes?
+
+The expected reward in this situation is still \$100 as there are still 3 total boxes and
+his selection represents 1/3 of the total amount of \$300
+
+(3) Assume Mike decided to swap the box in his hands with one of the other two unopened boxes but ended up getting nothing. What is the probability that the box he originally chose actually contains the $200 bill?
+
+1/2 or 50%
+
+[reference manual]: http://research.microsoft.com/en-us/um/people/daan/madoko/doc/reference.html  "Madoko reference manual"
